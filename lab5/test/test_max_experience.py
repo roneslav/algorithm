@@ -1,39 +1,39 @@
+# test_max_experience.py
 
 import unittest
-from lab5.src.max_experience import max_experience
+from lab5.src.max_experience import max_experience, topological_sort, matrix_to_graph
 
 class TestMaxExperienceFunction(unittest.TestCase):
     def test_max_experience_example1(self):
-        test_levels = 4
-        test_experience = [
+        levels = 4
+        experience = [
+            [4],
             [3, 1],
             [2, 1, 5],
             [1, 3, 2, 1],
-            [0, 1, 0, 1, 0]
         ]
 
         expected_result = 12
 
-
-        result = max_experience(test_levels, test_experience)
+        result = max_experience(levels, experience)
 
         self.assertEqual(result, expected_result)
 
     def test_max_experience_example2(self):
-        test_levels = 1
-        test_experience = [
+        levels = 1
+        experience = [
             [9999]
         ]
 
         expected_result = 9999
 
-        result = max_experience(test_levels, test_experience)
+        result = max_experience(levels, experience)
 
         self.assertEqual(result, expected_result)
 
     def test_max_experience_example3(self):
-        test_levels = 5
-        test_experience = [
+        levels = 5
+        experience = [
             [0],
             [1, 1],
             [0, 0, 0],
@@ -43,10 +43,9 @@ class TestMaxExperienceFunction(unittest.TestCase):
 
         expected_result = 3
 
-        result = max_experience(test_levels, test_experience)
+        result = max_experience(levels, experience)
 
         self.assertEqual(result, expected_result)
-
 
 if __name__ == '__main__':
     unittest.main()
